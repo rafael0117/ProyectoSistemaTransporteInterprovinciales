@@ -22,6 +22,7 @@ public class ViajeMapper {
     }
 
     public Viaje getEntity(ViajeRequestDTO dto, Bus bus, Destino destino) {
+
         return Viaje.builder()
                 .idBus(bus)
                 .destino(destino)
