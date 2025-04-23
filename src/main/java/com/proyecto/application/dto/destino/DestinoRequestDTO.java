@@ -1,6 +1,5 @@
-package com.proyecto.application.dto;
+package com.proyecto.application.dto.destino;
 
-import jakarta.persistence.Column;
 import lombok.Builder;
 import lombok.Data;
 

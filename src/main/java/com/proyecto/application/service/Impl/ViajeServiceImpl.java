@@ -1,7 +1,8 @@
-package com.proyecto.application.service;
+package com.proyecto.application.service.Impl;
 
-import com.proyecto.application.dto.ViajeRequestDTO;
-import com.proyecto.application.dto.ViajeResponseDTO;
+import com.proyecto.application.dto.viaje.ViajeRequestDTO;
+import com.proyecto.application.dto.viaje.ViajeResponseDTO;
+import com.proyecto.application.service.ViajeService;
 import com.proyecto.domain.entity.Bus;
 import com.proyecto.domain.entity.Destino;
 import com.proyecto.domain.entity.Viaje;

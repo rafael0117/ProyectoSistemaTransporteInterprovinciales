@@ -1,7 +1,7 @@
 package com.proyecto.application.mapper;
 
-import com.proyecto.application.dto.BusRequestDTO;
-import com.proyecto.application.dto.BusResponseDTO;
+import com.proyecto.application.dto.bus.BusRequestDTO;
+import com.proyecto.application.dto.bus.BusResponseDTO;
 import com.proyecto.domain.entity.Bus;
 import org.springframework.stereotype.Component;
 

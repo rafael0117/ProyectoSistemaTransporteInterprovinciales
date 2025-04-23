@@ -1,7 +1,6 @@
 package com.proyecto.application.service;
 
-import com.proyecto.application.dto.DestinoRequestDTO;
-import com.proyecto.application.dto.DestinoResponseDTO;
+import com.proyecto.application.dto.destino.DestinoResponseDTO;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;

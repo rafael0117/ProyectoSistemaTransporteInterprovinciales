@@ -1,7 +1,7 @@
 package com.proyecto.web.controller;
 
-import com.proyecto.application.dto.BusRequestDTO;
-import com.proyecto.application.dto.BusResponseDTO;
+import com.proyecto.application.dto.bus.BusRequestDTO;
+import com.proyecto.application.dto.bus.BusResponseDTO;
 import com.proyecto.application.service.BusService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

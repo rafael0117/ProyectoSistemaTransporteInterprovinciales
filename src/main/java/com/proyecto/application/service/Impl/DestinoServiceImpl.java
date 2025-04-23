@@ -1,6 +1,7 @@
-package com.proyecto.application.service;
+package com.proyecto.application.service.Impl;
 
-import com.proyecto.application.dto.DestinoResponseDTO;
+import com.proyecto.application.dto.destino.DestinoResponseDTO;
+import com.proyecto.application.service.DestinoService;
 import com.proyecto.domain.entity.Destino;
 import com.proyecto.application.mapper.DestinoMapper;
 import com.proyecto.domain.repository.DestinoRepository;
@@ -13,14 +14,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class DestinoServiceImpl implements DestinoService{
+public class DestinoServiceImpl implements DestinoService {
     private final DestinoRepository repository;
     private final DestinoMapper mapper;
 

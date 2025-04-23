@@ -1,7 +1,7 @@
 package com.proyecto.application.mapper;
 
-import com.proyecto.application.dto.DestinoRequestDTO;
-import com.proyecto.application.dto.DestinoResponseDTO;
+import com.proyecto.application.dto.destino.DestinoRequestDTO;
+import com.proyecto.application.dto.destino.DestinoResponseDTO;
 import com.proyecto.domain.entity.Destino;
 import org.springframework.stereotype.Component;
 

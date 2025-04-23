@@ -1,7 +1,8 @@
-package com.proyecto.application.service;
+package com.proyecto.application.service.Impl;
 
-import com.proyecto.application.dto.BusRequestDTO;
-import com.proyecto.application.dto.BusResponseDTO;
+import com.proyecto.application.dto.bus.BusRequestDTO;
+import com.proyecto.application.dto.bus.BusResponseDTO;
+import com.proyecto.application.service.BusService;
 import com.proyecto.domain.entity.Bus;
 import com.proyecto.application.mapper.BusMapper;
 import com.proyecto.domain.repository.BusRepository;

@@ -1,7 +1,7 @@
 package com.proyecto.application.mapper;
 
-import com.proyecto.application.dto.ViajeRequestDTO;
-import com.proyecto.application.dto.ViajeResponseDTO;
+import com.proyecto.application.dto.viaje.ViajeRequestDTO;
+import com.proyecto.application.dto.viaje.ViajeResponseDTO;
 import com.proyecto.domain.entity.Bus;
 import com.proyecto.domain.entity.Destino;
 import com.proyecto.domain.entity.Viaje;

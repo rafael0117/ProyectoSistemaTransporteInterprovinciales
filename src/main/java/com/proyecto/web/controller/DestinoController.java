@@ -1,7 +1,6 @@
 package com.proyecto.web.controller;
 
-import com.proyecto.application.dto.DestinoRequestDTO;
-import com.proyecto.application.dto.DestinoResponseDTO;
+import com.proyecto.application.dto.destino.DestinoResponseDTO;
 import com.proyecto.application.service.DestinoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.proyecto.application.dto;
+package com.proyecto.application.dto.viaje;
 
 import lombok.Builder;
 import lombok.Data;
@@ -7,10 +7,9 @@ import java.time.LocalDate;
 
 @Data
 @Builder
-public class ViajeResponseDTO {
-    private Long idViaje;
-    private String nombreBus;
-    private String nombreDestino;
+public class ViajeRequestDTO {
+    private Long idBus;
+    private Long idDestino;
     private LocalDate fechaSalida;
     private LocalDate fechaLlegada;
     private String incidencias;

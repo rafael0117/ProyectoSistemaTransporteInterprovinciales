@@ -1,4 +1,4 @@
-package com.proyecto.application.dto;
+package com.proyecto.application.dto.bus;
 
 
 import lombok.Builder;

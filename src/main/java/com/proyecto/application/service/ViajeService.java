@@ -1,7 +1,7 @@
 package com.proyecto.application.service;
 
-import com.proyecto.application.dto.ViajeRequestDTO;
-import com.proyecto.application.dto.ViajeResponseDTO;
+import com.proyecto.application.dto.viaje.ViajeRequestDTO;
+import com.proyecto.application.dto.viaje.ViajeResponseDTO;
 
 import java.util.List;
 

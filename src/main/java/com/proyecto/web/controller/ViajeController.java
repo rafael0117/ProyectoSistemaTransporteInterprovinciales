@@ -1,7 +1,7 @@
 package com.proyecto.web.controller;
 
-import com.proyecto.application.dto.ViajeRequestDTO;
-import com.proyecto.application.dto.ViajeResponseDTO;
+import com.proyecto.application.dto.viaje.ViajeRequestDTO;
+import com.proyecto.application.dto.viaje.ViajeResponseDTO;
 import com.proyecto.application.service.ViajeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
