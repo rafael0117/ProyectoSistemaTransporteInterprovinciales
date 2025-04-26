@@ -10,4 +10,5 @@ public interface BusService {
     BusResponseDTO guardar(BusRequestDTO dto);
     BusResponseDTO editar(Long id, BusRequestDTO dto);
     void eliminar(Long id);
+    BusResponseDTO obtenerBus(Long id);
 }

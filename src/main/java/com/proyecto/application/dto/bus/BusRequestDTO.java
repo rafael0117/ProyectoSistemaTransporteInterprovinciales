@@ -4,7 +4,6 @@ import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder
 public class BusRequestDTO {
     private String modelo;
     private String marca;
