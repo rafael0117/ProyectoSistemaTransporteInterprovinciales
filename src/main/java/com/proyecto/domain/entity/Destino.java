@@ -1,5 +1,6 @@
 package com.proyecto.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,5 +25,6 @@ public class Destino {
     private String imagen;
 
     @OneToMany(mappedBy = "destino", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties("destino")
     private List<Viaje> viajes;
 }

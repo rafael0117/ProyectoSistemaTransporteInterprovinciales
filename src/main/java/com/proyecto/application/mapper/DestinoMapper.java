@@ -22,5 +22,11 @@ public class DestinoMapper {
                 .imagen(dto.getImagen())
                 .build();
     }
+    public Destino getEntityDestino(DestinoResponseDTO destinoResponseDTO){
+        return Destino.builder()
+                .idDestino(destinoResponseDTO.getIdDestino())
+                .nombre(destinoResponseDTO.getNombre())
+                .build();
+    }
 
 }

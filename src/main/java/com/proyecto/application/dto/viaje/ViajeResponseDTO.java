@@ -9,10 +9,16 @@ import java.time.LocalDate;
 @Builder
 public class ViajeResponseDTO {
     private Long idViaje;
-    private String nombreBus;
-    private String nombreDestino;
     private LocalDate fechaSalida;
     private LocalDate fechaLlegada;
     private String incidencias;
     private double precio;
+    //bus
+    private String modelo;
+    private String marca;
+    private int anio;
+    private int capacidad;
+    private String placa;
+    //destino
+    private String nombre;
 }

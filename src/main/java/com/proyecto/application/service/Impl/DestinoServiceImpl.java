@@ -1,5 +1,6 @@
 package com.proyecto.application.service.Impl;
 
+import com.proyecto.application.dto.bus.BusResponseDTO;
 import com.proyecto.application.dto.destino.DestinoResponseDTO;
 import com.proyecto.application.service.DestinoService;
 import com.proyecto.domain.entity.Destino;
@@ -105,6 +106,12 @@ public class DestinoServiceImpl implements DestinoService {
             throw new RuntimeException("No existe un Destino con ID: " + id);
         }
         repository.deleteById(id);
+    }
+    @Override
+    public DestinoResponseDTO obtenerDestino(Long id) {
+        return repository.findById(id)
+                .map(mapper::getDto)
+                .orElseThrow(() -> new RuntimeException("No existe el Bus con ID : " + id));
     }
 
 

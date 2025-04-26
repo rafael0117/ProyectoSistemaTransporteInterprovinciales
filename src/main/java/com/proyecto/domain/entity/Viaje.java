@@ -1,6 +1,8 @@
 package com.proyecto.domain.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,11 +21,13 @@ public class Viaje {
 
     @ManyToOne
     @JoinColumn(name = "id_bus", nullable = false)
+    @JsonIgnoreProperties("viajes")
     private Bus idBus;
 
     @ManyToOne
     @JoinColumn(name = "id_destino", nullable = false)
-    private Destino destino;  // Cambiar de idDestino a destino
+    @JsonIgnoreProperties("viajes")
+    private Destino destino;
 
     @Column(name = "fech_sal", nullable = false)
     private LocalDate fechaSalida;

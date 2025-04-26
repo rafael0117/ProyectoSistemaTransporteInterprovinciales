@@ -26,4 +26,14 @@ public class BusMapper {
                 .placa(dto.getPlaca())
                 .build();
     }
+    public Bus getEntityBus(BusResponseDTO busResponseDTO){
+        return Bus.builder()
+                .idBus(busResponseDTO.getIdBus())
+                .modelo(busResponseDTO.getModelo())
+                .marca(busResponseDTO.getMarca())
+                .anio(busResponseDTO.getAnio())
+                .capacidad(busResponseDTO.getCapacidad())
+                .placa(busResponseDTO.getPlaca())
+                .build();
+    }
 }
