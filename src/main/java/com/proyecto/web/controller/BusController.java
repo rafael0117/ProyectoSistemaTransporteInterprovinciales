@@ -33,4 +33,7 @@ public class BusController {
     public void eliminar(@PathVariable Long id) {
         service.eliminar(id);
     }
+
+    @GetMapping("/{id}")
+    public BusResponseDTO obtenerBus(@PathVariable Long id) {return service.obtenerBus(id);}
 }

@@ -1,11 +1,8 @@
 package com.proyecto.domain.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.List;
 
 
 @Entity
@@ -34,8 +31,4 @@ public class Bus {
 
     @Column(name = "placa", nullable = false, length = 20)
     private String placa;
-
-    @OneToMany(mappedBy = "idBus", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnoreProperties("idBus")
-    private List<Viaje> viajes;
 }

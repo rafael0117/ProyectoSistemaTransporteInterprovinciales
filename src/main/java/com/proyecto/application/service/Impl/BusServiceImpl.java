@@ -48,11 +48,4 @@ public class BusServiceImpl implements BusService
         }
         repository.deleteById(id);
     }
-
-    @Override
-    public BusResponseDTO obtenerBus(Long id) {
-        return repository.findById(id)
-                .map(mapper::getDto)
-                .orElseThrow(() -> new RuntimeException("No existe el Bus con ID : " + id));
-    }
 }
