@@ -14,13 +14,13 @@ import java.util.List;
 public class PersonalController {
     private final PersonalService service;
 
-    @GetMapping
+    @GetMapping("/listar")
     public List<PersonalResponseDto> listar() {return service.listar();}
 
-    @PostMapping
+    @PostMapping("/guardar")
     public PersonalResponseDto guardar(@RequestBody PersonalRequestDto requestDto) {return service.guardar(requestDto);}
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/eliminar/{id}")
     public void delete (@PathVariable Long id) {service.eliminar(id);}
 
     @GetMapping("/{id}")

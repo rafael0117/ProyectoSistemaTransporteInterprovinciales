@@ -16,10 +16,10 @@ import java.util.List;
 public class RevisionBusController {
     private final RevisionBusService service;
 
-    @GetMapping
+    @GetMapping("/listar")
     public List<RevisionBusResponseDto> listar() {return service.listar();}
 
-    @PostMapping
+    @PostMapping("/guardar")
     public RevisionBusResponseDto guardar(@RequestBody RevisionBusRequestDto requestDto) {return service.guardar(requestDto);}
 
 
