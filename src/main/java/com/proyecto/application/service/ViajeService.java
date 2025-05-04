@@ -10,6 +10,7 @@ public interface ViajeService {
     ViajeResponseDTO guardar(ViajeRequestDTO dto);
     ViajeResponseDTO editar(Long id, ViajeRequestDTO dto);
     void eliminar(Long id);
+    List<ViajeResponseDTO> listarViajesPorDestino(Long idDestino);
 
 
 }

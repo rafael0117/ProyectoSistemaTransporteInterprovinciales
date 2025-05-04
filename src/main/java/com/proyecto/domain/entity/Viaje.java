@@ -40,4 +40,6 @@ public class Viaje {
 
     @Column(name = "precio", nullable = false)
     private double precio;
+    @Column(name = "cantidad_disponible")
+    private int cantidadDisponible;
 }

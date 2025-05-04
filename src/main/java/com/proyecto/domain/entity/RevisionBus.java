@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 
 @Entity
-@Table(name = "tb_revision")
+@Table(name = "revision")
 @Data
 @Builder
 @AllArgsConstructor

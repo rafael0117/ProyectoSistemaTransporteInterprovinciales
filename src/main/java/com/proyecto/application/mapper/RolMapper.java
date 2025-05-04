@@ -9,21 +9,19 @@ import org.springframework.stereotype.Component;
 public class RolMapper {
     public RolResponseDto dto(Rol rol) {
         return RolResponseDto.builder()
-                .idRol(rol.getIdrol())
-                .descripcion(rol.getDescripcion())
+                .idRol(rol.getName())
                 .build();
     }
 
     public Rol toEntity(RolRequestDto rolRequestDto) {
         return Rol.builder()
-                .descripcion(rolRequestDto.getDescripcion())
+                .name(rolRequestDto.getDescripcion())
                 .build();
     }
 
     public Rol toEntityRol(RolResponseDto rolResponseDto) {
         return Rol.builder()
-                .idrol(rolResponseDto.getIdRol())
-                .descripcion(rolResponseDto.getDescripcion())
+                .name(rolResponseDto.getIdRol())
                 .build();
     }
 }

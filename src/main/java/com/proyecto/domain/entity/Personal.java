@@ -38,6 +38,6 @@ public class Personal {
 
     // Relación muchos a uno con la tabla Cargos
     @ManyToOne
-    @JoinColumn(name = "idrol")
+    @JoinColumn
     private Rol rol;
 }

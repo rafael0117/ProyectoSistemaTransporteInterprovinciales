@@ -11,7 +11,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/viaje")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
 public class ViajeController {
 
     private final ViajeService service;
@@ -34,5 +33,10 @@ public class ViajeController {
     @DeleteMapping("/eliminar/{id}")
     public void eliminar(@PathVariable Long id) {
         service.eliminar(id);
+    }
+
+    @GetMapping("/destino/{id}")
+    public List<ViajeResponseDTO> listarViajesPorDestino(@PathVariable Long id) {
+        return service.listarViajesPorDestino(id);
     }
 }

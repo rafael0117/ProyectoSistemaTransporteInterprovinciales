@@ -17,7 +17,7 @@ public class PersonalMapper {
                 .telefono(personal.getTelefono())
                 .email(personal.getEmail())
                 .direccion(personal.getDireccion())
-                .descripcion(personal.getRol().getDescripcion())
+                .descripcion(personal.getRol().getName())
                 .build();
     }
 

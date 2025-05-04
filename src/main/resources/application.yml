@@ -1,3 +1,5 @@
+server:
+  port: 8080
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/TransporteInterProvincial
@@ -13,5 +15,6 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
         use_sql_comments: true
-server:
-  port: 8080
+jwt:
+  secret: TuClaveSuperSecretaMuyLarga1234567890
+  expiration: 36000000

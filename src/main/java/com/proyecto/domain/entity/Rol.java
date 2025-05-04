@@ -16,13 +16,5 @@ import java.util.List;
 @NoArgsConstructor
 public class Rol {
     @Id
-    @Column(name = "idrol")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idrol;
-
-    @Column(name = "descripcion")
-    private String descripcion;
-
-    @OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Personal> personals;
+    private String name;
 }

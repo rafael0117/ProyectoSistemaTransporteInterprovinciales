@@ -11,7 +11,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/bus")
 @RequiredArgsConstructor
-@CrossOrigin("http://localhost:4200")
 public class BusController {
     private final BusService service;
 

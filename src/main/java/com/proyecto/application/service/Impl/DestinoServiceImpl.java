@@ -79,7 +79,8 @@ public class DestinoServiceImpl implements DestinoService {
             destino.setNombre(nombre);
 
             if (imagen != null && !imagen.isEmpty()) {
-                String nombreArchivo = UUID.randomUUID() + "_" + imagen.getOriginalFilename();
+                // Usar el nombre original SIN UUID
+                String nombreArchivo = imagen.getOriginalFilename();
                 Path rutaImagenes = Paths.get("src/main/resources/static/images/");
                 if (!Files.exists(rutaImagenes)) {
                     Files.createDirectories(rutaImagenes);
@@ -87,8 +88,8 @@ public class DestinoServiceImpl implements DestinoService {
                 Path rutaCompleta = rutaImagenes.resolve(nombreArchivo);
                 Files.copy(imagen.getInputStream(), rutaCompleta, StandardCopyOption.REPLACE_EXISTING);
 
-                String urlImagen = "/images/" + nombreArchivo;
-                destino.setImagen(urlImagen);
+                // Guardar SOLO el nombre del archivo en la base de datos
+                destino.setImagen(nombreArchivo);
             }
 
             return mapper.getDto(repository.save(destino));
@@ -97,6 +98,7 @@ public class DestinoServiceImpl implements DestinoService {
             throw new RuntimeException("Error al actualizar el destino", e);
         }
     }
+
 
 
 

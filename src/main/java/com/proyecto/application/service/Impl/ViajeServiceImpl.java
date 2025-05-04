@@ -18,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -74,6 +75,11 @@ public class ViajeServiceImpl implements ViajeService {
         }
         viajerepository.deleteById(id);
     }
-
+    @Override
+    public List<ViajeResponseDTO> listarViajesPorDestino(Long idDestino) {
+        return viajerepository.findByDestinoIdDestino(idDestino).stream()
+                .map(viajeMapper::getDto)
+                .collect(Collectors.toList());
+    }
 }
 
