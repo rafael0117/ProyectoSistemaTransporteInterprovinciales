@@ -54,10 +54,10 @@ public class ViajeServiceImpl implements IViajeService {
         Viaje viajeExistente = viajerepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Viaje no encontrado con ID: " + id));
 
-        BusResponseDTO busResponseDTO = IBusService.obtenerBus(dto.getIdBus());
-        Bus bus = busMapper.getEntityBus(busResponseDTO);
+        BusResponseDTO busResponseDTO = IBusService.obtenerBus(dto.getIdBus());//obtiene el id del bus
+        Bus bus = busMapper.getEntityBus(busResponseDTO);//convierte el bus en entidad
 
-        DestinoResponseDTO destinoResponseDTO = IDestinoService.obtenerDestino(dto.getIdDestino());
+        DestinoResponseDTO destinoResponseDTO = IDestinoService.obtenerDestino(dto.getIdDestino());//obtiene el id del bus
         Destino destino = destinoMapper.getEntityDestino(destinoResponseDTO);
 
         Viaje viajeActualizado = viajeMapper.getEntity(dto, bus, destino);

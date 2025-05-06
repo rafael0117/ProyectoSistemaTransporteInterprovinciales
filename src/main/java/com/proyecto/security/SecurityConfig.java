@@ -38,6 +38,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/images/**", "/css/**", "/js/**", "/favicon.ico").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/destino/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/viaje/**").permitAll()
 
                         // SUPERVISOR: puede hacer GET a bus y destino
                         .requestMatchers(HttpMethod.GET, "/api/bus/**").hasAnyRole("ADMIN", "SUPER")
@@ -51,9 +53,6 @@ public class SecurityConfig {
                         .requestMatchers("/api/viaje/**").hasRole("SUPER")
                         .requestMatchers("/api/personal/**").hasRole("SUPER")
                         .requestMatchers("/api/revision-buses/**").hasRole("SUPER")
-
-
-
 
                         // USER y ADMIN: acceso a ventas
                         .requestMatchers("/api/venta/**").hasAnyRole("ADMIN", "USER")
