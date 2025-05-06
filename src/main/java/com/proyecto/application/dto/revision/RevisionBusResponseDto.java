@@ -8,14 +8,15 @@ import java.time.LocalDate;
 @Data
 @Builder
 public class RevisionBusResponseDto {
-    private Long revisionId;
+    private Long idRevision;
     private LocalDate fechaRevision;
-    private String tipoRevision;
-    private String resultado;
     private String observaciones;
-    private String modelo;
-    private String marca;
-    private int anio;
-    private int capacidad;
-    private String placa;
+
+    private Long idBus;
+    private String modeloBus;
+    private String placaBus;
+
+    private Long idPersonal;
+    private String nombresPersonal;
+    private String apellidosPersonal;
 }

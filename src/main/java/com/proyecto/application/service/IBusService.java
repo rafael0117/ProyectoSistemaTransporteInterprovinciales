@@ -5,7 +5,7 @@ import com.proyecto.application.dto.bus.BusResponseDTO;
 
 import java.util.List;
 
-public interface BusService {
+public interface IBusService {
     List<BusResponseDTO> listar();
     BusResponseDTO guardar(BusRequestDTO dto);
     BusResponseDTO editar(Long id, BusRequestDTO dto);

@@ -2,7 +2,7 @@ package com.proyecto.web.controller;
 
 import com.proyecto.application.dto.viaje.ViajeRequestDTO;
 import com.proyecto.application.dto.viaje.ViajeResponseDTO;
-import com.proyecto.application.service.ViajeService;
+import com.proyecto.application.service.IViajeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ViajeController {
 
-    private final ViajeService service;
+    private final IViajeService service;
 
     @GetMapping("/listar")
     public List<ViajeResponseDTO> listar() {

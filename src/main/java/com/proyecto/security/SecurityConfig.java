@@ -30,27 +30,42 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-                .cors(Customizer.withDefaults())  // Habilita CORS con la configuración que has definido
-                .csrf(csrf -> csrf.disable())    // Deshabilita CSRF, adecuado para API RESTful
+                .cors(Customizer.withDefaults())
+                .csrf(csrf -> csrf.disable())
                 .sessionManagement(sm ->
-                        sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))  // Sin estado (stateless)
+                        sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        // Permite el acceso sin autenticación a las rutas de autenticación
                         .requestMatchers("/api/auth/**").permitAll()
-                        // Asegura que las rutas de bus, destino y viaje sean accesibles solo para usuarios con rol "ADMIN"
-                        .requestMatchers("/api/bus/**").permitAll()
-                        .requestMatchers("/api/destino/**").permitAll()
                         .requestMatchers("/images/**", "/css/**", "/js/**", "/favicon.ico").permitAll()
-                        .requestMatchers("/api/viaje/**").permitAll()
-                        .requestMatchers("/api/venta/**").permitAll()
-                        // Otras rutas requieren que el usuario esté autenticado
+
+                        // SUPERVISOR: puede hacer GET a bus y destino
+                        .requestMatchers(HttpMethod.GET, "/api/bus/**").hasAnyRole("ADMIN", "SUPER")
+                        .requestMatchers(HttpMethod.GET, "/api/destino/**").hasAnyRole("ADMIN", "SUPER")
+
+                        // ADMIN: acceso total a bus y destino (POST, PUT, DELETE, etc.)
+                        .requestMatchers("/api/bus/**").hasRole("ADMIN")
+                        .requestMatchers("/api/destino/**").hasRole("ADMIN")
+
+                        // SUPERVISOR: acceso completo a viajes
+                        .requestMatchers("/api/viaje/**").hasRole("SUPER")
+                        .requestMatchers("/api/personal/**").hasRole("SUPER")
+                        .requestMatchers("/api/revision-buses/**").hasRole("SUPER")
+
+
+
+
+                        // USER y ADMIN: acceso a ventas
+                        .requestMatchers("/api/venta/**").hasAnyRole("ADMIN", "USER")
+
                         .anyRequest().authenticated()
                 )
-                .authenticationProvider(provider())  // Configura el proveedor de autenticación
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);  // Agrega el filtro JWT antes del filtro de autenticación estándar
+                .authenticationProvider(provider())
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
     }
+
+
 
     // Configura el codificador de contraseñas
     @Bean

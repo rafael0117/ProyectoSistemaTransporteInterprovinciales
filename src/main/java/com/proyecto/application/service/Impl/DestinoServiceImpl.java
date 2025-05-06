@@ -1,11 +1,10 @@
 package com.proyecto.application.service.Impl;
 
-import com.proyecto.application.dto.bus.BusResponseDTO;
 import com.proyecto.application.dto.destino.DestinoResponseDTO;
-import com.proyecto.application.service.DestinoService;
+import com.proyecto.application.service.IDestinoService;
 import com.proyecto.domain.entity.Destino;
 import com.proyecto.application.mapper.DestinoMapper;
-import com.proyecto.domain.repository.DestinoRepository;
+import com.proyecto.domain.repository.IDestinoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,13 +15,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class DestinoServiceImpl implements DestinoService {
-    private final DestinoRepository repository;
+public class DestinoServiceImpl implements IDestinoService {
+    private final IDestinoRepository repository;
     private final DestinoMapper mapper;
 
     @Override

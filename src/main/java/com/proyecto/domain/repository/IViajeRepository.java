@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface ViajeRepository extends JpaRepository<Viaje,Long> {
+public interface IViajeRepository extends JpaRepository<Viaje,Long> {
     List<Viaje> findByDestinoIdDestino(Long idDestino);
 }

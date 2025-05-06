@@ -6,10 +6,8 @@ import lombok.Data;
 @Data
 @Builder
 public class DetalleVentaResponseDTO {
-    private Long idDetalle;
-    private Long idViaje;
-    private double precio;
+    private String nombreViaje;
     private int cantidad;
+    private double precioUnitario;
     private double total;
-    private int cantidadDisponible;
 }

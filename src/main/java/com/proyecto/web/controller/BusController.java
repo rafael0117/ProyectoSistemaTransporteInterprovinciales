@@ -2,7 +2,7 @@ package com.proyecto.web.controller;
 
 import com.proyecto.application.dto.bus.BusRequestDTO;
 import com.proyecto.application.dto.bus.BusResponseDTO;
-import com.proyecto.application.service.BusService;
+import com.proyecto.application.service.IBusService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/bus")
 @RequiredArgsConstructor
 public class BusController {
-    private final BusService service;
+    private final IBusService service;
 
     @GetMapping("/listar")
     public List<BusResponseDTO> listar(){

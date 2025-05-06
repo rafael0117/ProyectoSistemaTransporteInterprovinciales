@@ -3,33 +3,33 @@ package com.proyecto.application.mapper;
 import com.proyecto.application.dto.revision.RevisionBusRequestDto;
 import com.proyecto.application.dto.revision.RevisionBusResponseDto;
 import com.proyecto.domain.entity.Bus;
+import com.proyecto.domain.entity.Personal;
 import com.proyecto.domain.entity.RevisionBus;
 import org.springframework.stereotype.Component;
 
 @Component
 public class RevisionBusMapper {
-    public RevisionBusResponseDto toDto(RevisionBus revisionBus) {
+    // Convierte el DTO de solicitud en una entidad RevisionBus
+    public RevisionBusResponseDto getDto(RevisionBus revision) {
         return RevisionBusResponseDto.builder()
-                .revisionId(revisionBus.getRevisionId())
-                .fechaRevision(revisionBus.getFechaRevision())
-                .tipoRevision(revisionBus.getTipoRevision())
-                .resultado(revisionBus.getResultado())
-                .observaciones(revisionBus.getObservaciones())
-                .modelo(revisionBus.getBus().getModelo())
-                .marca(revisionBus.getBus().getMarca())
-                .anio(revisionBus.getBus().getAnio())
-                .capacidad(revisionBus.getBus().getCapacidad())
-                .placa(revisionBus.getBus().getPlaca())
+                .idRevision(revision.getIdRevision())
+                .fechaRevision(revision.getFechaRevision())
+                .observaciones(revision.getObservaciones())
+                .idBus(revision.getBus().getIdBus())
+                .modeloBus(revision.getBus().getModelo())
+                .placaBus(revision.getBus().getPlaca())
+                .idPersonal(revision.getPersonal().getId())
+                .nombresPersonal(revision.getPersonal().getNombre())
+                .apellidosPersonal(revision.getPersonal().getApellido())
                 .build();
     }
 
-    public RevisionBus toEntity(RevisionBusRequestDto requestDto, Bus bus) {
+    public RevisionBus getEntity(RevisionBusRequestDto dto, Bus bus, Personal personal) {
         return RevisionBus.builder()
-                .fechaRevision(requestDto.getFechaRevision())
-                .tipoRevision(requestDto.getTipoRevision())
-                .resultado(requestDto.getResultado())
-                .observaciones(requestDto.getObservaciones())
+                .fechaRevision(dto.getFechaRevision())
+                .observaciones(dto.getObservaciones())
                 .bus(bus)
+                .personal(personal)
                 .build();
     }
 }

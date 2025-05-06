@@ -2,10 +2,10 @@ package com.proyecto.application.service.Impl;
 
 import com.proyecto.application.dto.bus.BusRequestDTO;
 import com.proyecto.application.dto.bus.BusResponseDTO;
-import com.proyecto.application.service.BusService;
+import com.proyecto.application.service.IBusService;
 import com.proyecto.domain.entity.Bus;
 import com.proyecto.application.mapper.BusMapper;
-import com.proyecto.domain.repository.BusRepository;
+import com.proyecto.domain.repository.IBusRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +13,9 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class BusServiceImpl implements BusService
+public class BusServiceImpl implements IBusService
 {
-    private final BusRepository repository;
+    private final IBusRepository repository;
     private final BusMapper mapper;
     @Override
     public List<BusResponseDTO> listar() {

@@ -1,55 +1,59 @@
 package com.proyecto.application.service.Impl;
 
-import com.proyecto.application.dto.Personal.PersonalRequestDto;
-import com.proyecto.application.dto.Personal.PersonalResponseDto;
-import com.proyecto.application.dto.rol.RolResponseDto;
+import com.proyecto.application.dto.personal.PersonalRequestDTO;
+import com.proyecto.application.dto.personal.PersonalResponseDTO;
 import com.proyecto.application.mapper.PersonalMapper;
-import com.proyecto.application.mapper.RolMapper;
-import com.proyecto.application.service.PersonalService;
-import com.proyecto.application.service.RolService;
+import com.proyecto.application.service.IPersonalService;
 import com.proyecto.domain.entity.Personal;
-import com.proyecto.domain.entity.Rol;
-import com.proyecto.domain.repository.PersonalRepository;
+import com.proyecto.domain.repository.IPersonalRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class PersonalServiceImpl implements PersonalService {
-    private final PersonalRepository repository;
-    private final PersonalMapper personalMapper;
-    private final RolService rolService;
-    private final RolMapper rolMapper;
+public class PersonalServiceImpl implements IPersonalService {
+    private final IPersonalRepository repository;
+    private final PersonalMapper mapper;
+
     @Override
-    public List<PersonalResponseDto> listar() {
+    public List<PersonalResponseDTO> listar() {
         return repository.findAll().stream()
-                .map(personalMapper::toDto)
+                .map(mapper::getDto)
                 .toList();
     }
 
     @Override
-    public PersonalResponseDto guardar(PersonalRequestDto requestDto) {
-        RolResponseDto rolResponseDto = rolService.obtenerRol(requestDto.getIdRol());
-        Rol rol = rolMapper.toEntityRol(rolResponseDto);
-        Personal personal = personalMapper.toEntity(requestDto,rol);
-        return personalMapper.toDto(repository.save(personal));
+    public PersonalResponseDTO guardar(PersonalRequestDTO dto) {
+        Personal personal = mapper.getEntity(dto);
+        Personal nuevo = repository.save(personal);
+        return mapper.getDto(nuevo);
+    }
+
+    @Override
+    public PersonalResponseDTO editar(Long id, PersonalRequestDTO dto) {
+        Personal existente = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Personal no encontrado con ID: " + id));
+        Personal actualizado = mapper.getEntity(dto);
+        actualizado.setId(existente.getId());
+        Personal guardado = repository.save(actualizado);
+        return mapper.getDto(guardado);
     }
 
     @Override
     public void eliminar(Long id) {
         if (!repository.existsById(id)) {
-            throw new RuntimeException("no existe el personal con ID : " + id);
+            throw new RuntimeException("No existe un personal con ID: " + id);
         }
         repository.deleteById(id);
     }
 
-
     @Override
-    public PersonalResponseDto listarPorId(Long id) {
+    public PersonalResponseDTO obtenerPorId(Long id) {
         return repository.findById(id)
-                .map(personalMapper::toDto)
-                .orElseThrow(() -> new RuntimeException("no hay reservas con el ID : " + id));
+                .map(mapper::getDto)
+                .orElseThrow(() -> new RuntimeException("No existe el personal con ID: " + id));
     }
 }

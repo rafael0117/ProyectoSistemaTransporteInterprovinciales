@@ -1,7 +1,7 @@
 package com.proyecto.web.controller;
 
 import com.proyecto.application.dto.destino.DestinoResponseDTO;
-import com.proyecto.application.service.DestinoService;
+import com.proyecto.application.service.IDestinoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DestinoController {
 
-    private final DestinoService service;
+    private final IDestinoService service;
 
     @GetMapping("/listar")
     public List<DestinoResponseDTO> listar() {

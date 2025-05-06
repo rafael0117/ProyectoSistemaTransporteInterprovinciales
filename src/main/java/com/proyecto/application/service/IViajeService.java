@@ -5,7 +5,7 @@ import com.proyecto.application.dto.viaje.ViajeResponseDTO;
 
 import java.util.List;
 
-public interface ViajeService {
+public interface IViajeService {
     List<ViajeResponseDTO> listar();
     ViajeResponseDTO guardar(ViajeRequestDTO dto);
     ViajeResponseDTO editar(Long id, ViajeRequestDTO dto);
